@@ -2,6 +2,9 @@ scss_files: "app/assets/stylesheets/"
 
 linters:
 
+  Comment:
+    exclude: '**/*.css'
+
   HexNotation:
     enabled: true
     style: uppercase
