@@ -42,6 +42,7 @@ group :development, :test do
   gem 'scss_lint', require: false
   gem 'rubocop', '~> 0.51.0', require: false
   gem 'rubocop-rspec', '1.10.0'
+  gem 'slim'
 end
 
 group :development do

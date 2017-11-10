@@ -1,12 +1,9 @@
 @import 'colors';
+@import 'equalizer';
+@import 'http://fonts.googleapis.com/css?family=Open+Sans';
 
-.vertical-separator {
-  margin: 0 25px;
-  max-height: 100%;
-  width: 3px;
-  border: 0;
-  background: linear-gradient(to top, $transparent, $orange, $transparent);
-  align-self: stretch;
+* {
+  font-family: 'Open Sans', sans-serif;
 }
 
 .logo-section {
@@ -16,20 +13,25 @@
   flex-flow: row wrap;
   align-items: center;
   justify-content: center;
+  border-top: $orange solid 10px;
 }
 
-.header-color-bar {
-  width: 100%;
-  height: 5px;
-  border-style: solid;
-  border-color: $orange;
-  background-color: $orange;
+.vertical-separator {
+  margin: 0 25px;
+  max-height: 100%;
+  width: 3px;
+  background: linear-gradient(to top, $transparent, $orange, $transparent);
+  align-self: stretch;
 }
 
-hr {
+.features-section::before {
   background: image-url('landing/triangle.png') repeat;
+  position: absolute;
+  top: -10px;
   height: 10px;
+  width: 100%;
   border: 0;
+  content: '';
   margin: 0;
   padding: 0;
 }
@@ -39,6 +41,7 @@ hr {
   background-color: $light-grey;
   border: 0;
   margin: 0;
+  position: relative;
   padding: 30px;
   display: flex;
   flex-flow: row wrap;
@@ -50,9 +53,7 @@ hr {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
-  font-family: 'Open Sans';
   text-align: center;
-  color: $dark-grey;
   padding: 5px;
   width: 100%;
   max-width: 250px;
@@ -67,6 +68,23 @@ hr {
 .feature-p {
   max-width: 200px;
   color: $gray;
+  font-weight: bold;
+  line-height: 18px;
+}
+
+.feature-title {
+  color: $dark-grey;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 25px;
+  margin: 3px 1px;
+}
+
+.form-text {
+  color: $white;
+  font-weight: bold;
+  font-size: 100%;
+  text-align: center;
 }
 
 .footer {
@@ -74,12 +92,11 @@ hr {
   flex-flow: column;
   align-items: center;
   background-color: $orange;
-  font-family: 'Open Sans';
   text-align: center;
-  color: $white;
   height: 200px;
   padding: 15px;
-  box-shadow: 0 0 5px $gray;
+  box-shadow: 0 -1px 5px $gray;
+  position: relative;
 }
 
 .footer-input {
@@ -88,23 +105,17 @@ hr {
   height: 40px;
   width: 100%;
   max-width: 350px;
-  margin-bottom: 10px;
+  margin: 15px 10px 10px;
   padding: 5px;
-  font-family: 'Open Sans';
 }
 
-.submit {
+.submit-button {
   border-width: 1px;
   border-style: solid;
   border-color: $white;
   border-radius: 7px;
   height: 30px;
   background-color: $orange;
-  font-family: 'Open Sans';
-  color: $white;
-  font-weight: bold;
-  font-size: 100%;
-  text-align: center;
   margin: 10px;
   padding: 10px 15px 30px;
 }
