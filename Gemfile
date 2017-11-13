@@ -35,6 +35,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'slim'
 gem 'devise'
+
+# gems for token authentication and omniauth
 gem 'devise_token_auth'
 gem 'omniauth'
 
@@ -44,6 +46,8 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+
+  # Lints
   gem 'scss_lint', require: false
   gem 'rubocop', '~> 0.51.0', require: false
   gem 'rubocop-rspec', '1.10.0'
