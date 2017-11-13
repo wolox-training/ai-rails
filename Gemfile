@@ -33,17 +33,24 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'slim'
+gem 'devise'
+
+# gems for token authentication and omniauth
+gem 'devise_token_auth'
+gem 'omniauth'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+
+  # Lints
   gem 'scss_lint', require: false
   gem 'rubocop', '~> 0.51.0', require: false
   gem 'rubocop-rspec', '1.10.0'
-  gem 'slim'
-  gem 'devise'
 end
 
 group :development do
