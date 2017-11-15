@@ -51,6 +51,10 @@ group :development, :test do
   gem 'scss_lint', require: false
   gem 'rubocop', '~> 0.51.0', require: false
   gem 'rubocop-rspec', '1.10.0'
+
+  gem 'rspec-rails'
+  gem 'rspec-mocks'
+
 end
 
 group :development do
@@ -63,8 +67,16 @@ group :development do
 end
 
 group :test do
-  gem 'rspec-mocks'
-  gem 'rspec-rails'
+  # Rspec for testing
+
+  gem 'shoulda-matchers', require: false
+
+  # For cleaning the database after testing
+  gem 'database_cleaner'
+
+  # Create fake database
+  gem 'faker'
+  gem 'factory_bot_rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
