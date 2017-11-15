@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :validatable, :omniauthable
 
   has_many :rents, dependent: :destroy
+  validates :first_name, :last_name, presence: true
 end
