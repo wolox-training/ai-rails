@@ -1,13 +1,13 @@
 class BooksController < ApplicationController
   include Wor::Paginate
-  before_action :get_book, only: [:show]
+  before_action :book, only: [:show]
 
-  def get_book
+  def book
     @book = Book.find(params[:id])
-    render json: @book
   end
 
   def show
+    render json: @book
   end
 
   def index
