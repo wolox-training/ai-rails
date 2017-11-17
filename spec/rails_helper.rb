@@ -67,6 +67,8 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
   end
+  # Devise test configuration
+  config.include Devise::Test::ControllerHelpers, type: :controller
 
   config.around(:each) do |example|
     DatabaseCleaner.cleaning do
