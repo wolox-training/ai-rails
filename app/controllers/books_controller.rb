@@ -7,7 +7,7 @@ class BooksController < ApplicationController
   end
 
   def filter
-    @book_search = Book.where(nil)
+    @book_search = Book
     %w[title author description].each do |attribute|
       if params[attribute].present?
         @book_search = @book_search.public_send(attribute, params[attribute])
