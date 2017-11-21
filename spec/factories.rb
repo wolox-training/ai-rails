@@ -6,10 +6,11 @@ FactoryBot.define do
     publisher Faker::Book.publisher
     genre   Faker::Book.genre
     image   Faker::Avatar.image
+    description Faker::Lorem.sentence
   end
 
   factory :user do
-    email   Faker::Internet.email
+    email Faker::Internet.email
     password Faker::Internet.password
     password_confirmation { password }
     first_name  Faker::Name.first_name
