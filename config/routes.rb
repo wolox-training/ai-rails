@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   root 'landing#index'
   resources :books, only: [:index, :show] do
-#    get 'rents'
     resources :rents, only: [:index]
   end
 
