@@ -13,4 +13,9 @@ class BooksController < ApplicationController
   def index
     render_paginated Book, each_serializer: BookSerializer
   end
+
+  def rents
+    @rents = Rent.includes(:user, :book).where(book_id: params[:book_id])
+    render_paginated @rents, each_serializer: RentSerializer
+  end
 end
