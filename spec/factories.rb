@@ -17,8 +17,8 @@ FactoryBot.define do
   end
 
   factory :rent do
-    from  Faker::Date.between_except(1.year.ago, 1.year.from_now, Date.today)
-    to  Faker::Date.between_except(1.year.ago, 1.year.from_now, Date.today)
+    from  Faker::Date.between_except(1.year.ago, 1.year.from_now, Time.zone.today)
+    to Faker::Date.between_except(1.year.ago, 1.year.from_now, Time.zone.today)
     user
     book
   end

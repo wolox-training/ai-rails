@@ -8,7 +8,7 @@ describe RentsController, type: :controller do
       let!(:rents) { create_list(:rent, 3, user: user) }
 
       before do
-        get :index, params: { :user_id => user.id }
+        get :index, params: { user_id: user.id }
       end
 
       it 'responses with the rents json' do
@@ -28,7 +28,7 @@ describe RentsController, type: :controller do
       let!(:rents) { create_list(:rent, 3, book: book) }
 
       before do
-        get :index, params: { :book_id => book.id }
+        get :index, params: { book_id: book.id }
       end
 
       it 'responses with the rents json' do
@@ -44,15 +44,17 @@ describe RentsController, type: :controller do
     end
   end
 
-
-
   describe 'POST #create' do
     context 'When creating a rent' do
       let(:user) { create(:user) }
       let(:book) { create(:book) }
 
       before do
-        post :create, params: { :user_id => user.id, :book_id => book.id, :from => Faker::Date.between_except(1.year.ago, 1.year.from_now, Date.today), :to => Faker::Date.between_except(1.year.ago, 1.year.from_now, Date.today) }
+        post :create, params: {
+          user_id: user.id, book_id: book.id,
+          from: Faker::Date.between_except(1.year.ago, 1.year.from_now, Time.zone.today),
+          to: Faker::Date.between_except(1.year.ago, 1.year.from_now, Time.zone.today)
+        }
       end
 
       it 'responses with the new rent json' do
