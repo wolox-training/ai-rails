@@ -2,6 +2,10 @@ class RentsController < ApplicationController
   include Wor::Paginate
   before_action :authenticate_user!
 
+  def rent_params
+    params.permit(:user_id, :book_id, :from, :to)
+  end
+
   def index
     @rents = if params[:user_id].present?
                Rent.includes(:user, :book).where(user_id: params[:user_id])
