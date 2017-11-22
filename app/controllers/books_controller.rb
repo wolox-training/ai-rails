@@ -6,12 +6,22 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
 
+  def filter
+    @book_search = Book
+    %w[title author description].each do |attribute|
+      if params[attribute].present?
+        @book_search = @book_search.public_send(attribute, params[attribute])
+      end
+    end
+  end
+
   def show
     render json: book
   end
 
   def index
-    render_paginated Book, each_serializer: BookSerializer
+    filter
+    render_paginated @book_search, each_serializer: BookSerializer
   end
 
   def rents
