@@ -6,6 +6,7 @@ FactoryBot.define do
     publisher Faker::Book.publisher
     genre   Faker::Book.genre
     image   Faker::Avatar.image
+    description Faker::Lorem.sentence
   end
 
   factory :user do
