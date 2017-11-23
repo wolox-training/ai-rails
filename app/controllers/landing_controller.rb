@@ -1,3 +1,3 @@
-class LandingController < ApplicationController
+class LandingController < ApiController
   def index; end
 end
