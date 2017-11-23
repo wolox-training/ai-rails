@@ -16,10 +16,8 @@ class EmailWorker
 
   def perform(rent_id)
     rent = Rent.find(rent_id)
-    user = User.find(rent.user_id)
+    user = rent.user
     locale(user)
-    @receiver = user.email
-    @mail_info = info(rent)
-    ModelMailer.new_rent_notification(@receiver, @mail_info).deliver
+    ModelMailer.new_rent_notification(user.email, info(rent)).deliver
   end
 end

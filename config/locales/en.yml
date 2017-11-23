@@ -37,7 +37,7 @@ en:
     you_rent: "You rent"
     rent_start: "Rent starts on"
     rent_ends: "and ends on"
-    thanks: "Thankssss"
+    thanks: "Thanks"
 
   model_mailer:
     new_rent_notification:
