@@ -16,7 +16,8 @@ class RentsController < ApplicationController
   end
 
   def create
-    @rents = Rent.create(rent_params)
-    render json: @rents
+    @rent = Rent.create(rent_params)
+    EmailWorker.perform_async(@rent['id'])
+    render json: @rent
   end
 end
