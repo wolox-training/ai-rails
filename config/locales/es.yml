@@ -1,0 +1,12 @@
+es:
+  mail:
+    greeting: "Hola"
+    new_rent_on: "Rentaste un libro el día"
+    you_rent: "Rentaste"
+    rent_start: "La renta comienza el"
+    rent_ends: "y finaliza el"
+    thanks: "Gracias"
+
+  model_mailer:
+    new_rent_notification:
+      subject: "Hiciste una nueva renta"

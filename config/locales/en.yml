@@ -31,3 +31,14 @@
 
 en:
   hello: "Hello world"
+  mail:
+    greeting: "Hi"
+    new_rent_on: "You made a new book rent on"
+    you_rent: "You rent"
+    rent_start: "Rent starts on"
+    rent_ends: "and ends on"
+    thanks: "Thanks"
+
+  model_mailer:
+    new_rent_notification:
+      subject: "You made a new rent"
