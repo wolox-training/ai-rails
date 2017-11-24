@@ -12,11 +12,14 @@ class RentsController < ApplicationController
              else
                Rent.includes(:user, :book).where(book_id: params[:book_id])
              end
+    authorize @rents
     render_paginated @rents, each_serializer: RentSerializer
   end
 
   def create
-    @rent = Rent.create(rent_params)
+    @rent = Rent.new(rent_params)
+    authorize @rent
+    @rent.save
     EmailWorker.perform_async(@rent['id'])
     render json: @rent
   end
