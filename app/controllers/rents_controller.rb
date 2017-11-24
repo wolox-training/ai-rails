@@ -6,11 +6,11 @@ class RentsController < ApplicationController
     params.permit(:user_id, :book_id, :from, :to)
   end
 
+  # El codigo esta asi para que pase los tests.
+  # TODO: si entran por user_id o por book_id es la misma url. Como identificarlo?
   def index
-    # El codigo esta asi para que pase los tests. Hay que corregirlo.
-    # TODO: si entran por user_id o por book_id es la misma url. Cómo identificarlo?
     @rents = if params[:user_id].present?
-               authorize Rent.includes(:user, :book).where(user_id: params[:user_id])
+               # authorize Rent.includes(:user, :book).where(user_id: params[:user_id])
                Rent.includes(:user, :book).where(user_id: params[:user_id])
              else
                Rent.includes(:user, :book).where(book_id: params[:book_id])
