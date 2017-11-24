@@ -5,3 +5,4 @@ LineLength:
 Metrics/BlockLength:
   Exclude:
     - spec/**/*
+    - app/admin/*
