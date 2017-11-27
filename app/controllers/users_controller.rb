@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < ApiController
   include Wor::Paginate
   before_action :authenticate_user!
 

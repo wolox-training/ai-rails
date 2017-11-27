@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   mount_devise_token_auth_for 'User', at: 'auth'
 
   root 'landing#index'
@@ -9,4 +11,6 @@ Rails.application.routes.draw do
   resources :users do
     resources :rents, only: [:create, :index]
   end
+
+  resources :book_suggestions, only: [:create]
 end
