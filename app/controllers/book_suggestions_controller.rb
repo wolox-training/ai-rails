@@ -6,7 +6,7 @@ class BookSuggestionsController < ApiController
   end
 
   def create
-    @booksuggestion = BookSuggestion.create(book_suggestion_params)
-    render json: @booksuggestion, status: :created
+    @book_suggestion = BookSuggestion.create!(book_suggestion_params)
+    render json: @book_suggestion, status: :created
   end
 end
