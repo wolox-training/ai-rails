@@ -8,5 +8,7 @@ class BookSuggestionsController < ApiController
   def create
     @book_suggestion = BookSuggestion.create!(book_suggestion_params)
     render json: @book_suggestion, status: :created
+  rescue ActiveRecord::RecordInvalid => invalid
+    render json: { error: invalid.message }, status: :unprocessable_entity
   end
 end
