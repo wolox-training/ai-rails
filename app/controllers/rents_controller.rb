@@ -6,15 +6,17 @@ class RentsController < ApplicationController
     params.permit(:user_id, :book_id, :from, :to)
   end
 
-  # El codigo esta asi para que pase los tests.
-  # TODO: si entran por user_id o por book_id es la misma url. Como identificarlo?
+  def rents(params)
+    if params[:user_id].present?
+      authorize Rent.includes(:user, :book).where(user_id: params[:user_id])
+      Rent.includes(:user, :book).where(user_id: params[:user_id])
+    else
+      Rent.includes(:user, :book).where(book_id: params[:book_id])
+    end
+  end
+
   def index
-    @rents = if params[:user_id].present?
-               # authorize Rent.includes(:user, :book).where(user_id: params[:user_id])
-               Rent.includes(:user, :book).where(user_id: params[:user_id])
-             else
-               Rent.includes(:user, :book).where(book_id: params[:book_id])
-             end
+    @rents = rents(params)
     render_paginated @rents, each_serializer: RentSerializer
   end
 
