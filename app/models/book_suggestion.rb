@@ -1,4 +1,4 @@
 class BookSuggestion < ApplicationRecord
-  belongs_to :user
-  validates :author, :link, :user, :title, presence: true
+  belongs_to :user, optional: true
+  validates :author, :link, :title, presence: true
 end
