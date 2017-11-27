@@ -8,8 +8,9 @@ class RentsController < ApplicationController
 
   def rents(params)
     if params[:user_id].present?
-      authorize Rent.includes(:user, :book).where(user_id: params[:user_id])
-      Rent.includes(:user, :book).where(user_id: params[:user_id])
+      rent = Rent.includes(:user, :book).where(user_id: params[:user_id])
+      authorize rent
+      rent
     else
       Rent.includes(:user, :book).where(book_id: params[:book_id])
     end
