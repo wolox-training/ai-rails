@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20171124162419) do
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_book_suggestions_on_user_id"
   end
-  
+
   create_table "books", force: :cascade do |t|
     t.string "genre", null: false
     t.string "author", null: false

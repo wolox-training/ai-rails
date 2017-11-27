@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   resources :users do
     resources :rents, only: [:create, :index]
   end
+
+  resources :book_suggestions, only: [:create]
 end
