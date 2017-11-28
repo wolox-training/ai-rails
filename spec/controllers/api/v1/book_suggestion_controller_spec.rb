@@ -25,9 +25,7 @@ describe BookSuggestionsController, type: :controller do
       end
 
       it 'doesn\'t create a new book suggestion' do
-        expect do
-          post :create, params: new_book_suggestion_attributes
-        end.to change { Rent.count }.by(0)
+        expect{ post :create, params: new_book_suggestion_attributes }.to_not change{Rent.count}
       end
 
       it 'returns error messages' do
