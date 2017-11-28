@@ -63,8 +63,28 @@ describe RentsController, type: :controller do
         ).to_json
       end
 
-      it 'responds with 200 status' do
-        expect(response).to have_http_status(:ok)
+      it 'responds with 201 status' do
+        expect(response).to have_http_status(:created)
+      end
+    end
+
+    context 'When creating an invalid user rent' do
+      let!(:new_rent_attributes) { attributes_for(:rent, book: nil) }
+      before do
+        post :create, params: { user_id: user.id, rent: new_rent_attributes }
+      end
+
+      it 'doesn\'t create a new rent' do
+        expect { post :create, params: { user_id: user.id, rent: new_rent_attributes } }
+          .to_not(change { Rent.count })
+      end
+
+      it 'returns error messages' do
+        expect(response.body['error']).to be_present
+      end
+
+      it 'responds with 422 status' do
+        expect(response).to have_http_status(:unprocessable_entity)
       end
     end
   end

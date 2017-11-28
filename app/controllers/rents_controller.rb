@@ -24,8 +24,12 @@ class RentsController < ApiController
   def create
     @rent = Rent.new(rent_params)
     authorize @rent
-    @rent.save
-    EmailWorker.perform_async(@rent['id'])
-    render json: @rent
+    begin
+      @rent.save!
+      EmailWorker.perform_async(@rent['id'])
+      render json: @rent, status: :created
+    rescue ActiveRecord::RecordInvalid => invalid
+      render json: { error: invalid.message }, status: :unprocessable_entity
+    end
   end
 end
