@@ -75,7 +75,8 @@ describe RentsController, type: :controller do
       end
 
       it 'doesn\'t create a new rent' do
-        expect{ post :create, params: { user_id: user.id, rent: new_rent_attributes } }.to_not change{Rent.count}
+        expect { post :create, params: { user_id: user.id, rent: new_rent_attributes } }
+          .to_not(change { Rent.count })
       end
 
       it 'returns error messages' do
