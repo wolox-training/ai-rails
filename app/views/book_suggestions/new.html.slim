@@ -1,0 +1,48 @@
+= javascript_include_tag("http://code.jquery.com/jquery-latest.min.js")
+= javascript_include_tag("booksuggestion-form.js")
+.container
+  = form_with id: "bs-form", url: book_suggestions_path do |form|
+    .field
+      span Title:
+      = form.text_field :title
+    .field
+      span Author
+      = form.text_field :author
+    .field
+      span Editorial:
+      = form.text_field :editorial
+    .field
+      span Publisher:
+      = form.text_field :publisher
+    .field
+      span Price:
+      = form.text_field :price
+    .field
+      span Link:
+      = form.text_field :link
+    .field
+      span Year:
+      = form.text_field :year
+    = form.submit
+
+
+table id= "bs-table"
+  thead
+    tr
+      th Title
+      th Author
+      th Editorial
+      th Publisher
+      th Price
+      th Link
+      th Year
+  tbody
+    - @book_suggestions.each do |bs|
+      tr
+        td = bs.title
+        td = bs.author
+        td = bs.editorial
+        td = bs.publisher
+        td = bs.price
+        td = bs.link
+        td = bs.year

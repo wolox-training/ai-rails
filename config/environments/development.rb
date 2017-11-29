@@ -56,9 +56,9 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :authentication => :plain,
-    :address => "smtp.mailgun.org",
-    :port => 587,
+    :authentication => :cram_md5,
+    :address => "smtp.mailtrap.io",
+    :port => 2525,
     :domain => Rails.application.secrets.mailer_domain,
     :user_name => Rails.application.secrets.mailer_username,
     :password => Rails.application.secrets.mailer_password
