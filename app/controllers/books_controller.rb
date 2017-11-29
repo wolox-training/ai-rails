@@ -1,6 +1,6 @@
 class BooksController < ApiController
   include Wor::Paginate
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:book_info]
 
   def book
     @book = Book.find(params[:id])
@@ -27,5 +27,10 @@ class BooksController < ApiController
   def rents
     @rents = Rent.includes(:user, :book).where(book_id: params[:book_id])
     render_paginated @rents, each_serializer: RentSerializer
+  end
+
+  def book_info
+    ol_service = OpenLibraryService.new
+    render json: ol_service.book_info(params[:isbn]) if params[:isbn].present?
   end
 end

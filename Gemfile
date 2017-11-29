@@ -55,6 +55,9 @@ gem "pundit"
 # Admin back office
 gem 'activeadmin', github: 'activeadmin'
 
+# Http requests
+gem 'httparty'
+
 # JQuery
 gem 'jquery-rails'
 
