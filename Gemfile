@@ -55,7 +55,7 @@ gem "pundit"
 # Admin back office
 gem 'activeadmin', github: 'activeadmin'
 
-# Httparty
+# Http requests
 gem 'httparty'
 
 group :development, :test do
