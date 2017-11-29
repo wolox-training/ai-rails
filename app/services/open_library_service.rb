@@ -14,7 +14,7 @@ class OpenLibraryService
 
   def generate_response(data)
     return {} if data.blank?
-    response = {
+    {
       isbn: data['identifiers']['isbn_10'][0],
       title: data['title'],
       subtitle: data['subtitle'],
