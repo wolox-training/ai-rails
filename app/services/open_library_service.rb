@@ -2,7 +2,6 @@ class OpenLibraryService
   def book_info(isbn)
     url = 'https://openlibrary.org/api/books?bibkeys=ISBN:' + isbn + '&format=json&jscmd=data'
     @data = (JSON.parse HTTParty.get(url).to_s).values[0]
-    # byebug
     @response = {}
     generate_response unless @data.nil?
     @response
