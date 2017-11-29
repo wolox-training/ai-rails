@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :book_suggestions, only: [:create, :new]
-
+  
   get 'books/book_info/:isbn', to: 'books#book_info'
+
 end

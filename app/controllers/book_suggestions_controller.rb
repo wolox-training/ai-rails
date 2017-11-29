@@ -11,4 +11,8 @@ class BookSuggestionsController < ApiController
   rescue ActiveRecord::RecordInvalid => invalid
     render json: { error: invalid.message }, status: :unprocessable_entity
   end
+
+  def new
+    @book_suggestions = BookSuggestion.all
+  end
 end
