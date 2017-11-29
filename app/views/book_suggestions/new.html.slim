@@ -1,35 +1,29 @@
 = javascript_include_tag("http://code.jquery.com/jquery-latest.min.js")
 = javascript_include_tag("booksuggestion-form.js")
-= form_with id: "bs-form", url: book_suggestions_path do |form|
-  | Title:
-  br
-  = form.text_field :title
-  br
-  | Author:
-  br
-  = form.text_field :author
-  br
-  | Editorial:
-  br
-  = form.text_field :editorial
-  br
-  | Publisher:
-  br
-  = form.text_field :publisher
-  br
-  | Price:
-  br
-  = form.text_field :price
-  br
-  | Link:
-  br
-  = form.text_field :link
-  br
-  | Year:
-  br
-  = form.text_field :year
-  br
-  = form.submit
+.container
+  = form_with id: "bs-form", url: book_suggestions_path do |form|
+    .field
+      span Title:
+      = form.text_field :title
+    .field
+      span Author
+      = form.text_field :author
+    .field
+      span Editorial:
+      = form.text_field :editorial
+    .field
+      span Publisher:
+      = form.text_field :publisher
+    .field
+      span Price:
+      = form.text_field :price
+    .field
+      span Link:
+      = form.text_field :link
+    .field
+      span Year:
+      = form.text_field :year
+    = form.submit
 
 
 table id= "bs-table"
