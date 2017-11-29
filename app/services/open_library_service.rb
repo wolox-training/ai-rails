@@ -14,12 +14,12 @@ class OpenLibraryService
 
   def generate_response(data)
     return {} if data.blank?
-    response = {}
-    response['isbn'] = data['identifiers']['isbn_10'][0]
-    response['title'] = data['title']
-    response['subtitle'] = data['subtitle']
-    response['nnumber_of_pages_pages'] = data['number_of_pages']
-    response['authors'] = data['authors'].map { |author| author['name'] }
-    response
+    response = {
+      isbn: data['identifiers']['isbn_10'][0],
+      title: data['title'],
+      subtitle: data['subtitle'],
+      number_of_pages_pages: data['number_of_pages'],
+      authors: data['authors'].map { |author| author['name'] }
+    }
   end
 end
